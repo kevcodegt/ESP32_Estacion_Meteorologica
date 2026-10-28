@@ -1,0 +1,17 @@
+{
+  "name": "esp32-weather-cloud",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check src/index.js && node --check src/dashboard.js",
+    "test": "node --test",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:local": "wrangler d1 execute esp32-weather-db --local --file=./schema.sql",
+    "db:remote": "wrangler d1 execute esp32-weather-db --remote --file=./schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

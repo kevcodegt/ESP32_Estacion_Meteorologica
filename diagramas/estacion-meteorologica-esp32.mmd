@@ -1,0 +1,20 @@
+graph LR
+    ESP["ESP32 DevKit / WROOM<br/>3V3 y GND<br/>GPIO21 SDA<br/>GPIO22 SCL<br/>GPIO4 DHT22"]
+    OLED["OLED SSD1306 128x64<br/>Direccion 0x3C"]
+    LUZ["BH1750 / GY-302<br/>Direccion 0x23"]
+    PRES["BMP280<br/>Direccion 0x76 o 0x77"]
+    DHT["DHT22<br/>Temperatura y humedad"]
+    RED["WiFi 2.4 GHz<br/>Iphonek"]
+
+    ESP -->|"3V3 a VCC<br/>GND a GND<br/>GPIO21 a SDA<br/>GPIO22 a SCL"| OLED
+    ESP -->|"3V3 a VCC<br/>GND a GND<br/>GPIO21 a SDA<br/>GPIO22 a SCL"| LUZ
+    ESP -->|"3V3 a VCC<br/>GND a GND<br/>GPIO21 a SDA<br/>GPIO22 a SCL"| PRES
+    ESP -->|"3V3 a pin 1<br/>GPIO4 a pin 2 DATA<br/>GND a pin 4<br/>10k entre 3V3 y DATA"| DHT
+    ESP -.->|"Conexion inalambrica"| RED
+
+    classDef controller fill:#dbeafe,stroke:#2563eb,color:#111827,stroke-width:3px;
+    classDef sensor fill:#dcfce7,stroke:#16a34a,color:#111827;
+    classDef network fill:#fef3c7,stroke:#d97706,color:#111827;
+    class ESP controller;
+    class OLED,LUZ,PRES,DHT sensor;
+    class RED network;

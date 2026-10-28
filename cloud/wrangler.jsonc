@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "esp32-weather-cloud",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-24",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "triggers": {
+    "crons": ["17 5 * * *"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "esp32-weather-db",
+      "database_id": "aa87552a-6bbb-47cb-bacc-5fbb97da0964"
+    }
+  ],
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  }
+
+  // Cuando tu dominio ya este administrado por Cloudflare, agrega:
+  // ,"routes": [
+  //   { "pattern": "clima.tudominio.com", "custom_domain": true }
+  // ]
+}
